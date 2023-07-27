@@ -3,6 +3,7 @@ package com.example.registerproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -14,9 +15,9 @@ public class AddUserActivity extends AppCompatActivity {
     private EditText firstNameET;
     private EditText lastNameET;
     private EditText emailET;
+    private Context context;
 
-    private ImageView photo1;
-    private ImageView photo2;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -28,19 +29,17 @@ public class AddUserActivity extends AppCompatActivity {
         lastNameET = findViewById(R.id.userSecondNameField);
         emailET = findViewById(R.id.userEmailField);
 
-        photo1 = findViewById(R.id.ivPictureMan);
-        photo2 = findViewById(R.id.ivWomanC);
-
-        photo1.setImageResource(R.drawable.man_new);
-        photo2.setImageResource(R.drawable.woman_new);
+        context = AddUserActivity.this;
     }
 
 
     public void addUser(View view){
 
         RadioGroup rgDegree = findViewById(R.id.rgDegree);
-        CheckBox checkBoxMan = findViewById(R.id.cbMan);
-        CheckBox checkBoxWoman = findViewById(R.id.cbWoman);
+        CheckBox checkBoxBachelor = findViewById(R.id.cbBachelor);
+        CheckBox checkBoxEngineer = findViewById(R.id.cbEngineer);
+        CheckBox checkBoxDoctor = findViewById(R.id.cbDoctor);
+        CheckBox checkBoxSwimming = findViewById(R.id.cbSwimming);
 
         String firstName = firstNameET.getText().toString();
         String lastName = lastNameET.getText().toString();
@@ -58,14 +57,24 @@ public class AddUserActivity extends AppCompatActivity {
             degreeProgram = "Sähkötekniikka";
         }
         User user = new User(firstName,lastName,email,degreeProgram);
-        if(checkBoxMan.isChecked()){
-            image = R.drawable.man_new;
-            user.addImage(image);
+        if(checkBoxBachelor.isChecked()){
+            user.addBachelors();
 
-        } else if(checkBoxWoman.isChecked()){
-            image = R.drawable.woman_new;
-            user.addImage(image);
         }
+        if(checkBoxEngineer.isChecked()){
+            user.addEngineer();
+
+        }
+        if(checkBoxDoctor.isChecked()){
+            user.addDoctor();
+
+        }
+        if(checkBoxSwimming.isChecked()){
+            user.addSwimming();
+        }
+
         UserStorage.getInstance().addUser(user);
+        UserStorage.getInstance().sortByAlphabet();
+        UserStorage.getInstance().saveUsers(context);
     }
 }

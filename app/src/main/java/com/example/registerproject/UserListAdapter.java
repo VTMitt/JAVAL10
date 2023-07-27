@@ -29,11 +29,26 @@ public class UserListAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        holder.userName.setText(users.get(position).getFirstName() + users.get(position).getLastName());
+        holder.userName.setText(users.get(position).getFirstName() +" " + users.get(position).getLastName());
         holder.userDegree.setText(users.get(position).getDegreeProgram());
         holder.userEmail.setText(users.get(position).getEmail());
-        if(users.get(position).getImage() != 0) {
-            holder.imageView.setImageResource(users.get(position).getImage());
+        if((users.get(position).getFinishedBachelor() != null) || (users.get(position).getFinishedEngineer() != null) ||(users.get(position).getFinishedDoctor() != null) ||(users.get(position).getFinishedSwimming() != null)) {
+            holder.userPrograms.append("Suoritetut tutkinnot:");
+            if (users.get(position).getFinishedBachelor() != null) {
+                holder.userPrograms.append("\n" + users.get(position).getFinishedBachelor());
+
+            }
+            if (users.get(position).getFinishedEngineer() != null) {
+                holder.userPrograms.append("\n" +users.get(position).getFinishedEngineer());
+
+            }
+            if (users.get(position).getFinishedDoctor() != null) {
+                holder.userPrograms.append("\n" +users.get(position).getFinishedDoctor());
+
+            }
+            if (users.get(position).getFinishedSwimming() != null) {
+                holder.userPrograms.append("\n" +users.get(position).getFinishedSwimming());
+            }
         }
 
     }

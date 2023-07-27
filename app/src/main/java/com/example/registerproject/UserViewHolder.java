@@ -2,6 +2,7 @@ package com.example.registerproject;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,14 +14,19 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
     TextView userDegree;
     TextView userEmail;
 
+    TextView userPrograms;
+
+
+
+
 
     public UserViewHolder(@NonNull View itemView) {
         super(itemView);
-        imageView = itemView.findViewById(R.id.ivUserImage);
         userName = itemView.findViewById(R.id.textFullName);
         userDegree = itemView.findViewById(R.id.textDegreeProgram);
         userEmail = itemView.findViewById(R.id.textEmail);
-
-
+        userPrograms = itemView.findViewById(R.id.textFinished);
     }
+
+
 }

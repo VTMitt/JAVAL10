@@ -25,7 +25,7 @@
         android:id="@+id/userSecondNameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Sukunimi"
@@ -40,14 +40,14 @@
         android:id="@+id/userEmailField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Sähköpostiosoite"
         android:inputType="text"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userSecondNameField" />
 
@@ -55,7 +55,7 @@
         android:id="@+id/rgDegree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userEmailField">
@@ -89,66 +89,51 @@
         android:id="@+id/btnAddUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
         android:onClick="addUser"
         android:text="Lisää käyttäjä"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbWoman" />
+        app:layout_constraintTop_toBottomOf="@+id/cbSwimming" />
 
-    <TextView
-        android:id="@+id/textInform"
+    <CheckBox
+        android:id="@+id/cbBachelor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Valitse kuva"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:text="kandidaatin tutkinto"
+        app:layout_constraintEnd_toEndOf="@+id/rgDegree"
+        app:layout_constraintStart_toStartOf="@+id/rgDegree"
         app:layout_constraintTop_toBottomOf="@+id/rgDegree" />
 
-    <ImageView
-        android:id="@+id/ivPictureMan"
-        android:layout_width="68dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/ivWomanC"
-        app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInform"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/ivWomanC"
-        android:layout_width="68dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="88dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInform"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <CheckBox
-        android:id="@+id/cbMan"
+        android:id="@+id/cbEngineer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/cbWoman"
-        app:layout_constraintHorizontal_bias="0.382"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPictureMan" />
+        android:text="Diplomi-insinöörin tutkinto"
+        app:layout_constraintEnd_toEndOf="@+id/cbBachelor"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="@+id/cbBachelor"
+        app:layout_constraintTop_toBottomOf="@+id/cbBachelor" />
 
     <CheckBox
-        android:id="@+id/cbWoman"
+        android:id="@+id/cbDoctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="90dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivWomanC" />
+        android:text="Tekniikan tohotrin tutkinto"
+        app:layout_constraintEnd_toEndOf="@+id/cbEngineer"
+        app:layout_constraintStart_toStartOf="@+id/cbEngineer"
+        app:layout_constraintTop_toBottomOf="@+id/cbEngineer" />
+
+    <CheckBox
+        android:id="@+id/cbSwimming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Uimamaisteri"
+        app:layout_constraintEnd_toEndOf="@+id/cbDoctor"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cbDoctor"
+        app:layout_constraintTop_toBottomOf="@+id/cbDoctor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

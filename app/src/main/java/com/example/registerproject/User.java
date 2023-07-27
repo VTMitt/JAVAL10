@@ -1,12 +1,18 @@
 package com.example.registerproject;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String firstName;
     private  String lastName;
     private String email;
     private String degreeProgram;
 
-    private int image = 0;
+    private String finishedBachelor = null;
+    private String finishedEngineer = null;
+    private String finishedDoctor = null;
+    private String finishedSwimming = null;
+
 
 
     public User(String firstName, String lastName, String email, String degreeProgram){
@@ -14,10 +20,6 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.degreeProgram = degreeProgram;
-    }
-
-    public int getImage() {
-        return image;
     }
 
     public String getFirstName(){
@@ -36,8 +38,53 @@ public class User {
         return degreeProgram;
     }
 
-    public void addImage(int image){
-        this.image = image;
+    public void addBachelors(){
+        finishedBachelor = "-Kandin tutkinto";
 
+    }
+
+    public void addEngineer(){
+        finishedEngineer = "-Diplomi-insinöörin tutkinto";
+
+    }
+
+    public void addDoctor(){
+        finishedDoctor = "-Tekniikan tohtorin tutkinto";
+    }
+
+    public void addSwimming(){
+        finishedSwimming = "-Uimamaisteri";
+    }
+
+    public String getFinishedBachelor() {
+        return finishedBachelor;
+    }
+
+    public String getFinishedEngineer() {
+        return finishedEngineer;
+    }
+
+    public String getFinishedDoctor() {
+        return finishedDoctor;
+    }
+
+    public String getFinishedSwimming() {
+        return finishedSwimming;
+    }
+
+    public void setFinishedBachelor(String finishedBachelor) {
+        this.finishedBachelor = finishedBachelor;
+    }
+
+    public void setFinishedEngineer(String finishedEngineer) {
+        this.finishedEngineer = finishedEngineer;
+    }
+
+    public void setFinishedSwimming(String finishedSwimming) {
+        this.finishedSwimming = finishedSwimming;
+    }
+
+    public void setFinishedDoctor(String finishedDoctor) {
+        this.finishedDoctor = finishedDoctor;
     }
 }
